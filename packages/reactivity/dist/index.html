@@ -10,21 +10,20 @@
   </head>
   <body>
     <div id="app"></div>
+    <div id="app2"></div>
     <script type="module">
       import { effect, reactive } from './reactivity.esm.js'
 
-      const state = reactive({ name: '张三', age: 18 })
-
-      console.log(state)
+      let test1 = { name: '张三', age: 18, sex: '女', flag: true }
+      let state1 = reactive(test1)
 
       effect(() => {
-        console.log(1)
-        app.innerHTML = `姓名${state.name} 年龄${state.age}`
+        app.innerHTML = state1.flag + state1.flag
       })
 
       setTimeout(() => {
-        state.name = '李四'
-      }, 2000)
+        state1.name = '李四'
+      }, 1000)
     </script>
   </body>
 </html>
